@@ -1,0 +1,27 @@
+<launch>
+  <arg name="csvPath" default="$(find final_simulator)/csv" />
+  <arg name="refPath" default="$(find final_evaluation)/csv" />
+  <arg name="laneCount" default="3" />
+  <arg name="laneWidth" default="3.3" />
+  <arg name="interval" default="0.5" />
+
+  <node pkg="final_autonomous_driving" type="cmd_input.py" name="driving_input" output="screen">
+    <remap from="driving_input" to="vehicle_input"/>
+  </node>
+  <node pkg="final_simulator" type="vehicle" name="vehicle">
+    <param name="init_x" value="0.0" />
+    <param name="init_y" value="0.0" />
+    <param name="init_yaw" value="0.0" />
+  </node>
+  <node pkg="final_map_maker" type="map_maker" name="map_maker" output="screen">
+    <param name="laneCount" value="$(arg laneCount)"/>
+    <param name="laneWidth" value="$(arg laneWidth)"/>
+    <param name="interval" value="$(arg interval)"/>
+  </node>
+  <!-- <node pkg="final_map_maker" type="save_csv" name="save_csv" >
+    <param name="csvPath" value="$(arg csvPath)"/>
+    <param name="refPath" value="$(arg refPath)"/>
+  </node> -->
+  <node pkg="final_simulator" type="display" name="display"/>
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find final_map_maker)/rviz/config.rviz" />
+</launch>

@@ -1,0 +1,2 @@
+autonomous_msg:final_evaluation:final_project/final_autonomous_driving:final_project/final_map_maker:final_project/final_simulator
+-DCATKIN_DEVEL_PREFIX=/home/q/ws_final/devel -DCMAKE_INSTALL_PREFIX=/home/q/ws_final/install -G Unix Makefiles

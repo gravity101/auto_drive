@@ -1,0 +1,33 @@
+<launch>
+
+  <arg name="path" default="$(find final_simulator)/csv" />
+  <arg name="ns1" default="back" />
+  <arg name="lookAhead" default="3.0" />
+  <arg name="ROIFront" default="20.0"/>
+  <arg name="ROIRear" default="5.0"/>
+  <arg name="ROILeft" default="12"/>
+  <arg name="ROIRight" default="12"/>
+
+  <group ns="$(arg ns1)">
+    <node pkg="final_autonomous_driving" type="autonomous_driving" name="autonomous_driving" output="screen">
+      <param name="ns" value="$(arg ns1)"/>
+      <param name="lookAhead" value="$(arg lookAhead)"/>
+    </node>
+    <node pkg="final_simulator" type="vehicle" name="vehicle" output="screen">
+      <param name="ns" value="$(arg ns1)"/>
+      <param name="init_x" value="0.0" />
+      <param name="init_y" value="0.0" />
+      <param name="init_yaw" value="0.0" />
+    </node>
+    <node pkg="final_simulator" type="lane_detection" name="lane_detection" output="screen">
+      <param name="ns" value="$(arg ns1)"/>
+      <param name="path" value="$(arg path)"/>
+      <param name="ROIFront" value="$(arg ROIFront)"/>
+      <param name="ROIRear" value="$(arg ROIRear)"/>
+      <param name="ROILeft" value="$(arg ROILeft)"/>
+      <param name="ROIRight" value="$(arg ROIRight)"/>
+    </node>
+    <node pkg="final_simulator" type="display" name="display" output="screen"/>
+  </group>
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find final_simulator)/rviz/config.rviz" />
+</launch>

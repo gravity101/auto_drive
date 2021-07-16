@@ -1,0 +1,8 @@
+prefix=/home/q/ws_final/install
+
+Name: final_evaluation
+Description: Description of final_evaluation
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lfinal_evaluation
+Requires: roscpp std_msgs

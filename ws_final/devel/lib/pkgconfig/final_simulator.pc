@@ -1,0 +1,8 @@
+prefix=/home/q/ws_final/devel
+
+Name: final_simulator
+Description: Description of final_simulator
+Version: 0.0.0
+Cflags: -I/home/q/ws_final/src/final_project/final_simulator/include -I/usr/include
+Libs: -L${prefix}/lib -lfinal_simulator /usr/lib/x86_64-linux-gnu/libboost_system.so
+Requires: roscpp std_msgs

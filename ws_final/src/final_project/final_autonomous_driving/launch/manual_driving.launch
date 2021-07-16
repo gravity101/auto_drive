@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="final_autonomous_driving" type="cmd_input.py" name="driving_input"  output="screen">
+  </node>
+</launch>

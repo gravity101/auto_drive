@@ -1,0 +1,8 @@
+prefix=/home/q/ws_final/install
+
+Name: final_autonomous_driving
+Description: Description of final_autonomous_driving
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lfinal_autonomous_driving
+Requires: roscpp std_msgs

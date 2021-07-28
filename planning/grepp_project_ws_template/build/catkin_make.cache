@@ -1,0 +1,2 @@
+optimal_frenet_planner:path_follower:simulation
+-DCATKIN_DEVEL_PREFIX=/home/a/grepp_project_ws_template/devel -DCMAKE_INSTALL_PREFIX=/home/a/grepp_project_ws_template/install -G Unix Makefiles

@@ -1,0 +1,6 @@
+<launch>
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find simulation)/config.rviz" />
+  <node pkg="path_follower" type="stanley_follower.py" name = "stanley" />
+  <node pkg="path_follower" type="map_drawer.py" name ="map_drawer" />
+  <node pkg="simulation" type="ego_vehicle.py" name ="ego_vehicle" />
+</launch>
